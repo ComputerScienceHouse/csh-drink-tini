@@ -64,6 +64,20 @@ class OutgoingLink extends Thread {
             CommLink.getInstance().Reconnect();
         }
     }
+    
+    public void sendNoOp() {
+        try {
+            out = new DataOutputStream( socket.getOutputStream() );
+            
+            out.writeBytes( "9" );
+            out.writeBytes( "\n" );
+            
+            out.flush();
+            
+        }catch( Exception e ) {
+            CommLink.getInstance().Reconnect();
+        }
+    }
 
     public void sendDropNACK() {
         try {

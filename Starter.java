@@ -21,6 +21,11 @@ class Starter {
           TempWorker temp = new TempWorker();
           temp.start();
         }
+	else
+	{
+	  NoOpWorker noop = new NoOpWorker();
+	  noop.start();
+	}
 
         CollectGarbage cg = new CollectGarbage();
         Thread cgt = new Thread( cg );
